@@ -1,0 +1,49 @@
+name: nxip Terraform Plan
+description: Comments on a Terraform pull request with the CIDR and IP-space utilization impact nxip would predict for each nxip_subnet change, before you apply.
+author: uk-sw
+
+branding:
+  icon: git-pull-request
+  color: blue
+
+inputs:
+  plan-json-path:
+    description: >
+      Path to a JSON-formatted Terraform plan, produced by
+      `terraform show -json tfplan > plan.json` after `terraform plan
+      -out=tfplan`. This action only reads that file - it does not run
+      terraform itself.
+    required: true
+  nxip-api-key:
+    description: >
+      nxip API key used to call POST /v1/subnets/preview. Falls back to
+      the NXIP_API_KEY environment variable if not set, matching
+      terraform-provider-nxip's own convention.
+    required: false
+  nxip-url:
+    description: >
+      Base URL of the nxip API. Falls back to the NXIP_URL environment
+      variable, then https://nxip.dev.
+    required: false
+  github-token:
+    description: Token used to read and upsert the PR comment. Defaults to the workflow's own GITHUB_TOKEN.
+    required: false
+    default: ${{ github.token }}
+  utilization-warning-threshold:
+    description: Percentage-used threshold at which a container's utilization is flagged with a warning marker in the comment.
+    required: false
+    default: "80"
+  fail-on-predicted-failure:
+    description: If true, the action exits non-zero when any previewed resource would fail (e.g. pool full, tier limit reached), in addition to posting the comment.
+    required: false
+    default: "false"
+
+outputs:
+  would-fail-count:
+    description: Number of resources the preview predicted would fail if applied.
+  previewed-count:
+    description: Number of resources actually previewed (create actions with fully resolvable routing).
+
+runs:
+  using: node20
+  main: dist/index.js

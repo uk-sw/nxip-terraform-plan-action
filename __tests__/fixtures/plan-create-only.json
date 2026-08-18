@@ -1,0 +1,45 @@
+{
+  "format_version": "1.2",
+  "terraform_version": "1.9.5",
+  "resource_changes": [
+    {
+      "address": "nxip_pool.production_us_east_1",
+      "mode": "managed",
+      "type": "nxip_pool",
+      "name": "production_us_east_1",
+      "provider_name": "registry.terraform.io/uk-sw/nxip",
+      "change": {
+        "actions": ["no-op"],
+        "before": { "id": "pool_abc123" },
+        "after": { "id": "pool_abc123" },
+        "after_unknown": {}
+      }
+    },
+    {
+      "address": "nxip_subnet.team_a",
+      "mode": "managed",
+      "type": "nxip_subnet",
+      "name": "team_a",
+      "provider_name": "registry.terraform.io/uk-sw/nxip",
+      "change": {
+        "actions": ["create"],
+        "before": null,
+        "after": {
+          "environment": "production",
+          "region": "us-east-1",
+          "family": "IPV4",
+          "prefix_length": 24,
+          "kind": null,
+          "name": "team-a",
+          "description": "App Team A",
+          "metadata": { "cost_center": "eng-42" }
+        },
+        "after_unknown": {
+          "id": true,
+          "cidr": true,
+          "parent_subnet_id": true
+        }
+      }
+    }
+  ]
+}

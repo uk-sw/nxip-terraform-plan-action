@@ -1,0 +1,30 @@
+{
+  "format_version": "1.2",
+  "terraform_version": "1.9.5",
+  "resource_changes": [
+    {
+      "address": "nxip_subnet.decommissioned",
+      "mode": "managed",
+      "type": "nxip_subnet",
+      "name": "decommissioned",
+      "provider_name": "registry.terraform.io/uk-sw/nxip",
+      "change": {
+        "actions": ["delete"],
+        "before": {
+          "id": "subnet_old2",
+          "cidr": "10.90.9.0/24",
+          "environment": "production",
+          "region": "us-east-1",
+          "family": "IPV4",
+          "prefix_length": 24,
+          "kind": null,
+          "name": "old-team",
+          "description": null,
+          "metadata": {}
+        },
+        "after": null,
+        "after_unknown": {}
+      }
+    }
+  ]
+}

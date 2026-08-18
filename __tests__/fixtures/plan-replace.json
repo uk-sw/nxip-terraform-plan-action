@@ -1,0 +1,43 @@
+{
+  "format_version": "1.2",
+  "terraform_version": "1.9.5",
+  "resource_changes": [
+    {
+      "address": "nxip_subnet.team_b",
+      "mode": "managed",
+      "type": "nxip_subnet",
+      "name": "team_b",
+      "provider_name": "registry.terraform.io/uk-sw/nxip",
+      "change": {
+        "actions": ["delete", "create"],
+        "before": {
+          "id": "subnet_old",
+          "cidr": "10.90.4.0/24",
+          "environment": "production",
+          "region": "us-east-1",
+          "family": "IPV4",
+          "prefix_length": 24,
+          "kind": null,
+          "name": "team-b",
+          "description": null,
+          "metadata": {}
+        },
+        "after": {
+          "environment": "production",
+          "region": "us-east-1",
+          "family": "IPV4",
+          "prefix_length": 25,
+          "kind": null,
+          "name": "team-b",
+          "description": null,
+          "metadata": {}
+        },
+        "after_unknown": {
+          "id": true,
+          "cidr": true,
+          "parent_subnet_id": true
+        }
+      }
+    }
+  ]
+}

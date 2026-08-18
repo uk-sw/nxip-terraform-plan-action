@@ -1,0 +1,87 @@
+{
+  "format_version": "1.2",
+  "terraform_version": "1.9.5",
+  "resource_changes": [
+    {
+      "address": "nxip_subnet.region_us_east_1",
+      "mode": "managed",
+      "type": "nxip_subnet",
+      "name": "region_us_east_1",
+      "provider_name": "registry.terraform.io/uk-sw/nxip",
+      "change": {
+        "actions": ["create"],
+        "before": null,
+        "after": {
+          "environment": "production",
+          "region": "us-east-1",
+          "family": "IPV4",
+          "prefix_length": 20,
+          "kind": "region",
+          "name": "us-east-1 region block",
+          "description": null,
+          "metadata": {}
+        },
+        "after_unknown": {
+          "id": true,
+          "cidr": true,
+          "parent_subnet_id": true
+        }
+      }
+    },
+    {
+      "address": "nxip_subnet.team_c",
+      "mode": "managed",
+      "type": "nxip_subnet",
+      "name": "team_c",
+      "provider_name": "registry.terraform.io/uk-sw/nxip",
+      "change": {
+        "actions": ["create"],
+        "before": null,
+        "after": {
+          "environment": null,
+          "region": null,
+          "family": "IPV4",
+          "prefix_length": 26,
+          "kind": null,
+          "name": "team-c",
+          "description": null,
+          "metadata": {}
+        },
+        "after_unknown": {
+          "id": true,
+          "cidr": true,
+          "environment": true,
+          "region": true,
+          "parent_subnet_id": true
+        }
+      }
+    },
+    {
+      "address": "nxip_subnet.team_d",
+      "mode": "managed",
+      "type": "nxip_subnet",
+      "name": "team_d",
+      "provider_name": "registry.terraform.io/uk-sw/nxip",
+      "change": {
+        "actions": ["create"],
+        "before": null,
+        "after": {
+          "environment": "production",
+          "region": "us-east-1",
+          "family": null,
+          "prefix_length": 24,
+          "kind": null,
+          "name": "team-d",
+          "description": null,
+          "metadata": {}
+        },
+        "after_unknown": {
+          "id": true,
+          "cidr": true,
+          "family": true,
+          "parent_subnet_id": true
+        }
+      }
+    }
+  ]
+}
